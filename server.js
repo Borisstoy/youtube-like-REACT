@@ -1,21 +1,15 @@
 var express = require('express');
+const path = require('path');
+var port = process.env.PORT || 8080;
 var app = express();
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+app.use(express.static(__dirname + '/public'));
 
 // set the view engine to jsx
 app.set('view engine', 'js');
 
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
-
-// set the home page route
-app.get('/', function(req, res) {
-
-    // ejs render automatically looks in the views folder
-    res.render('index');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'index.html'))
 });
 
 app.listen(port, function() {
