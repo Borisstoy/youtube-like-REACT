@@ -8,9 +8,13 @@
     "url": "git+ssh://git@github.com/StephenGrider/ReduxSimpleStarter.git"
   },
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "cross-env NODE_ENV=production node_modules/.bin/babel-node --presets react,es2015 src/server.js",
+    "start-dev": "npm run start-dev-hmr",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "start-dev-hmr": "node_modules/.bin/webpack-dev-server --progress --inline --hot --open",
+    "build": "cross-env NODE_ENV=production node_modules/.bin/webpack -p",
+    "heroku-postbuild": "next build"
   },
   "author": "",
   "license": "ISC",
