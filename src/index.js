@@ -8,8 +8,6 @@ import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
-// import '../style/style.scss';
-
 const API_KEY = 'AIzaSyDwo9dVAybSilX2rap1EaMS9dVl0ehCdzc';
 
 class App extends Component {

@@ -10,9 +10,8 @@ module.exports = {
   module: {
     loaders: [{
       exclude: /node_modules/,
-      loader: ['babel-loader'],
+      loader: 'babel',
       query: {
-        cacheDirectory: 'babel_cache',
         presets: ['react', 'es2015', 'stage-1']
       }
     }]
@@ -24,4 +23,4 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './'
   }
-};
+}
